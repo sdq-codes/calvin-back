@@ -22,7 +22,12 @@ class AuthService
         $user = User::where('email', $data['email'])->first();
 
         if (!$user || !Hash::check($data['password'], $user->password)) {
-            throw new \Exception('The provided credentials are incorrect.');
+            return [
+                        'data' => [
+                            'details': 'Incorrect user credentials'
+                        ],
+                        'status' => 401
+                    ];
         }
 
         $token = JWTAuth::fromUser($user);

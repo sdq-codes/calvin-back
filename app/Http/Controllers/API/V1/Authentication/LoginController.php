@@ -19,6 +19,12 @@ class LoginController extends Controller
     {
         $validatedData = $request->validated();
         $user = $this->authService->login($validatedData);
+        if($user->status) {
+            return response()->json([
+                        $user,
+                        'message' => 'User details incorrect'
+                    ], 401);
+        }
 
         return response()->json([
             'data' => $user,
