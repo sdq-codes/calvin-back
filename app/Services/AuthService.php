@@ -24,7 +24,7 @@ class AuthService
         if (!$user || !Hash::check($data['password'], $user->password)) {
             return [
                         'data' => [
-                            'details': 'Incorrect user credentials'
+                            'details' => 'Incorrect user credentials'
                         ],
                         'status' => 401
                     ];
