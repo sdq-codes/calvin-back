@@ -22,7 +22,7 @@ class LoginController extends Controller
         if(isset($user['status'])) {
             return response()->json([
                         $user,
-                        'message' => 'User details incorrect'
+                        'message' => 'Incorrect email and password'
                     ], 401);
         }
 
