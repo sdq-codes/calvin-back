@@ -21,6 +21,14 @@ class User extends Authenticatable implements JWTSubject
     protected $fillable = [
         'email',
         'password',
+        'spot_usd',
+        'spot_percentage',
+        'margin_usd',
+        'margin_percentage',
+        'futures_usd',
+        'futures_percentage',
+        'buy_sell_usd',
+        'buy_sell_percentage',
     ];
 
     public function wallets()
