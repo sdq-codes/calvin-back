@@ -33,6 +33,12 @@ class LoginController extends Controller
 
     }
 
+    public function user(string $id) {
+        return response()->json([
+            'data' => User::where('id', $id)->first(),
+        ], Response::HTTP_OK);
+    }
+
     public function logout()
     {
         $this->authService->logout();

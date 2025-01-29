@@ -27,6 +27,7 @@ Route::group(['prefix' => 'v1', 'namespace' => 'API\V1'], function () {
     Route::group(['prefix' => 'auth', 'namespace' => 'Authentication'], function () {
         Route::post('register', [RegisterController::class, 'register']);
         Route::post('login', [LoginController::class, 'login'])->name('login');
+        Route::get('user/{id}', [LoginController::class, 'user'])->name('user');
         Route::post( 'logout', [LoginController::class, 'logout'])->name('logout');
     });
 
